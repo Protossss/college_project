@@ -1,0 +1,72 @@
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;  
+    color: inherit;
+}
+#main-container{
+    width: 90vw;
+    margin: auto;
+}
+/* Header CSS */
+.header-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-links .left-links{
+    display: flex;
+}
+
+.left-links li{
+    padding-right: 30px;
+}
+
+i.fa-bars{
+    display: none;
+}
+
+@media only screen and (max-width: 680px) {
+    .left-links li{
+        display: none;
+    }
+    i.fa-bars{
+        display: block;
+    }
+  }
+
+i.fa-bars:hover{
+    color: red;
+}
+
+/* Why Us Section  */
+
+h2,p{
+    text-align: center;
+}
+.why-us{
+    width: 90vw;
+    margin: auto;
+}
+.site-features-container{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.site-feature{
+    width:25%;
+    margin: 10px 0;
+}
+@media only screen and (max-width: 680px) { 
+    .site-features-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .site-feature{
+        width: 60%;
+    }
+}
