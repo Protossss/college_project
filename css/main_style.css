@@ -1,53 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
-a{
-    text-decoration: none;  
-    color: inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
-#main-container,#second-container{
-    width: 90vw;
-    margin: auto;
+#main-container,
+#body-container {
+  width: 90vw;
+  margin: auto;
 }
 /* Header CSS */
-header{
+header {
   padding: 10px 0;
 }
-.top-nav{
+.top-nav {
   display: flex;
   justify-content: space-between;
 }
-.nav-links{
+.nav-links {
   display: flex;
 }
-.nav-links li{
+.nav-links li {
   padding-left: 20px;
 }
-.nav-links li:last-child{
+.nav-links li:last-child {
   display: none;
 }
-.nav-links li:hover{
+.nav-links li:hover {
   color: rgb(165, 25, 0);
 }
-@media only screen and (max-width: 680px){
-  .top-nav,.nav-links{
-    flex-direction: column; 
+@media only screen and (max-width: 680px) {
+  .top-nav,
+  .nav-links {
+    flex-direction: column;
     text-align: center;
   }
 }
 
-#sign
-
 /* Section with id "banner" */
-.mySlides {display: none}
-img {vertical-align: middle;}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -57,7 +61,8 @@ img {vertical-align: middle;}
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -79,8 +84,9 @@ img {vertical-align: middle;}
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -118,7 +124,8 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -131,74 +138,193 @@ img {vertical-align: middle;}
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
 
 /* Why Us Section  */
-
-h2,p{
-    text-align: center;
+.why-us {
+  width: 90vw;
+  margin: auto;
 }
-.why-us{
-    width: 90vw;
-    margin: auto;
+.why-us h2,
+.why-us p {
+  text-align: center;
 }
-.site-features-container{
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-}
-
-.site-feature{
-    width:25%;
-    margin: 10px 0;
+.site-features-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
-.site-feature h3{
+.site-feature {
+  width: 25%;
+  margin: 10px 0;
+}
+
+.site-feature h3 {
   font-size: 16px;
   padding-bottom: 10px;
 }
-@media only screen and (max-width: 680px) { 
-    .site-features-container{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .site-feature{
-        width: 60%;
-    }
+@media only screen and (max-width: 680px) {
+  .site-features-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .site-feature {
+    width: 60%;
+  }
+}
+
+/* Register Section */
+
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-content-wrapper {
+  text-align: center;
+  width: 75vw;
 }
 
 /* Footer */
-.bottom-nav{
+.bottom-nav {
   display: flex;
   justify-content: space-between;
 }
 
-.resources, .socials{
-  width:25%;
+.resources,
+.socials {
+  width: 25%;
   margin: 10px;
 }
-.about-us{
-  width:50%;
-  margin: 10px;
+.about-us {
+  width: 50%;
+  margin: 10px 0;
 }
 
-#banner,.why-us,.bottom-nav{
-  margin-bottom: 100px;
+.about-us p {
+  text-align: left;
 }
 
-.copyright-info{
+.copyright-info {
   margin: 20px 0;
 }
+
+/* Bottom margin */
+
+#banner,
+.why-us,
+.bottom-nav,
+.register-section,
+#log_in_tabs {
+  margin-bottom: 60px;
+}
+/* Bottom margin End*/
+
+/* Sign IN page CSS */
+
+#log_in_tabs {
+  margin: 0;
+  width: 40vw;
+  border: none;
+}
+
+.tabs-container {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(9deg, rgba(2,0,36,1) 0%, rgba(9,121,80,1) 11%, rgba(0,212,255,1) 100%);
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.form-element input {
+  width: 100%;
+  height: 30px;
+  margin: 10px auto;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  background-color: #007FFF;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+  background: white;
+  border: none;
+  border-bottom: 0.5px solid black;
+}
+
+
+@media only screen and (max-width: 760px) {
+  #log_in_tabs {
+    width: 60vw;
+  }
+}
+
+
+/* College View Page */
+#college-view-banner{
+  width: 100vw;
+}
+#college-view-banner img {
+  width: 100vw;
+  height: 35vh;
+  object-fit: cover;
+}
+
+.main-content-wrapper{
+  margin: 20px 0;
+  display: flex;
+}
+
+.column{
+  margin: 20px 30px 20px 0;
+}
+.left-column.column {
+  padding: 0 15px 15px 0;
+  line-height: 40px;
+}
+.right-column{
+  margin-right: 0;
+}
+
+.right-column .wrapper {
+  padding: 15px;
+  border: 0.5px solid rgb(116, 111, 111);
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+/* College View Page End*/

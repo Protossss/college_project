@@ -15,55 +15,7 @@
 </head>
 
 <body>
-    <div id="main-container">
-        <!-- <header class="main-header">
-                <div class="left-links">
-                    <a href="#">College Solutions</a>
-                </div>
-                <nav class="right-links">
-                    <li><a href="#">Browse</a></li>
-                    <li><a href="#">Rankings</a></li>
-                    <li><button class="sign-in">Sign In</button></li>
-                    <li><button class="sign-up">GET STARTED</button></li>
-                </nav>
-                <a href="javascript:void(0);" id="icon" onclick="showMobileNav()">
-                    <i class="fa fa-bars"></i>
-                </a>
-        </header> -->
-        <header class="top-nav">
-            <div id="logo">College Solutions</div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="">Browse</a></li>
-                    <li><a href="">Rankings</a></li>
-                    <li><a id="sign-in">Sign IN</a></li>
-                    <li><i class="fa fa-bars"></i></li>
-                </ul>
-            </nav>
-
-        </header>
-    </div>
-
-    <!-- Dialog Log In form -->
-    <div id="dialog-box" title="Sign in to your account">
-        <form action="#">
-            <div class="form-field">
-                <label for="username">Email/Username</label><br>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="form-field">
-                <label for="password">Password</label><br>
-                <input type="text" name="password" id="passoword">
-            </div>
-            <!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
-        </form>
-
-    </div>
-
-    <!-- end of Dialog Log In form -->
-
-
-
+    <?php include 'header.php'; ?>
     <section id="banner">
         <div class="slideshow-container">
 
@@ -97,7 +49,8 @@
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </section>
-    <div id="second-container">
+
+    <div id="body-container">
         <article class="why-us">
             <h2>Why College Solutions?</h2>
             <p>Your search is unique.
@@ -123,40 +76,18 @@
                 </div>
             </div>
         </article>
-        <footer class="bottom-nav">
-            <div class="about-us">
-                <img src="#" alt="website logo">
-                <p>We strive to deliver a level of service that exceeds the expectations of our customers.If you have
-                    any questions about our products or services, please do not hesitate to contact us.We have friendly,
-                    knowledgeable representatives available seven days a week to assist you.
-                </p>
+        <section class="register-section">
+            <div class="register-content-wrapper">
+                <h3>Register With Us Today !!</h3>
+                <p>You can shortlist colleges as well as get recommended college lists based on your profile. So,
+                    Register and enjoy the service for free.</p>
+                <button class="register">REGISTER NOW</button>
             </div>
-            <div class="resources">
-                <ul>
-                    <li>
-                        <h3>Useful Links</h3>
-                    </li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-            <div class="socials">
-                <ul class="social-links">
-                    <li>
-                        <h3>Socials</h3>
-                    </li>
-                    <li>FaceBook</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>Discord</li>
-                </ul>
-            </div>
-        </footer>
-        <div class="copyright-info">©Copyright CollegeSolutions.Inc 2021</div>
+        </section>
+        <?php include 'footer.php'; ?>
     </div>
-    <script src="js/main.js" defer></script>
 </body>
+<script src="js/main.js"></script>
 
 
 </html>

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    // Banner / Slide-show
     var slideIndex = 1;
     showSlides(slideIndex);
       
@@ -26,27 +27,8 @@ $(document).ready(function(){
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex-1].className += " active";
     }
+    
+    // CLient side validation
 
-    $( "#dialog-box" ).dialog({
-      
 
-      }
-    );
-
-    // $("#dialog-form").dialog({
-    //     autoOpen: false,
-    //     height: 400,
-    //     width: 350,
-    //     modal: true,
-    //     buttons: {
-    //       "Create an account": addUser,
-    //       Cancel: function() {
-    //         dialog.dialog( "close" );
-    //       }
-    //     }
-    // });
-
-    // $("#sign-in" ).on( "click", function() {
-    //    alert("hell");
-    // });      
 });
