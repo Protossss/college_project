@@ -14,6 +14,36 @@
 </head>
 
 <body>
+    <?php
+        include 'dbconnection.php';
+
+        if(isset($_GET['item'])){
+            $id = $_GET['item'];
+
+            $sql = "SELECT * FROM colleges WHERE CID='$id'";
+            $result= mysqli_query($conn, $sql);
+                
+            if(!$result) {
+                echo "No such college entry found!";
+            } 
+            else {
+                while($row = mysqli_fetch_assoc($result)) {
+                    $cid = $row['CID'];
+                    $cname = $row['CName'];
+                    $caffiliated = $row['CAffiliated'];
+                    $caddress = $row['CAddress'];
+                    $cprovince = $row['CAddress'];
+                    $cduration = $row['CDuration'];
+                    $cfees = $row['CFees'];
+                    $cwebsite = $row['CWebsite'];
+                    $ccontact = $row['CContact'];
+                    $cmail = $row['CMail'];
+                    $ctype = $row['CType'];
+                    $about = $row['About'];
+                }
+            }
+        }
+    ?>
     <?php include 'header.php'; ?>
     <section id="college-view-banner">
         <div><img src="images/college_img.jpg" alt="college image"></div>
@@ -35,16 +65,21 @@
             </div>
             <div class="right-column column">
                 <div class="wrapper" id="about">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    <?php
+                        if(isset($_GET['item'])){
+                            echo $about;
+                        }
+                        else{
+                            echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.";
+                        }
+                    ?>
                 </div>
                 <div class="wrapper" id="courses">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    BSC. CSIT(Computer Science and Information Technology)
                 </div>
                 <div class="wrapper" id="majors">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    CS(Computer Science)
                 </div>
                 <div class="wrapper" id="scholarship">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -54,9 +89,21 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.
                 </div>
+                
                 <div class="wrapper" id="contact">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                <?php
+                        if(isset($_GET['item'])){
+                            printf("
+                                <p>Phone: {$ccontact}</p>
+                                <p>Website: <a href='$ccontact'>$ccontact</a></p>
+                                <p>E-mail: {$cmail}</p>
+                            ");
+                        }
+                        else{
+                            echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.";
+                        }
+                    ?>
                 </div>
             </div>
         </div>

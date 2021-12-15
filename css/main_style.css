@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Playfair Display", serif;
+  /* background-color: rgb(238, 252, 255); */
 }
 li {
   list-style: none;
@@ -328,3 +329,17 @@ ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header
   border-radius: 5px;
 }
 /* College View Page End*/
+
+/* Browse Page */
+button.page-number,.college-options {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+.search-box{
+  margin: 20px 0;
+}
+#search{
+  width: 100%;
+  height: 35px;
+}
+/* Browse Page End*/
