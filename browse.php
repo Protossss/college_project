@@ -56,12 +56,12 @@
                     <div class="filter-form-content">
                         <h3>College Type</h3>
                         <hr>
-                        <input type="checkbox" value="private" id="private" class="college-type common_selector"
+                        <input type="checkbox" value="private" id="private" class="college_type common_selector"
                             name="college-type">
                         <label for="private">Private</label> <br>
-                        <input type="checkbox" value="public" id="public" class="college-type common_selector"
+                        <input type="checkbox" value="public" id="public" class="college_type common_selector"
                             name="college-type">
-                        <label for="public">Publice</label> <br>
+                        <label for="public">Public</label> <br>
                     </div>
                     <div class="form-content">
                         <h3>Location</h3>
@@ -109,57 +109,8 @@
                         </div>
 
                     </div>
-                    <div class="filter-data">
-                        <?php
-                            include 'dbconnection.php';
-
-                            //define total number of results you want per page
-                            $results_per_page = 2;
-
-                            //find the total number of results stored in the database
-                            $query = "select *from colleges";
-                            $result = mysqli_query($conn, $query);
-                            $number_of_result = mysqli_num_rows($result);
-
-                            //determine the total number of pages available
-                            $number_of_page = ceil($number_of_result / $results_per_page);
-
-                            //determine which page number visitor is currently on
-                            if (!isset($_GET['page'])) {
-                                $page = 1;
-                            } else {
-                                $page = $_GET['page'];
-                            }
-
-                            //determine the sql LIMIT starting number for the results on the displaying page
-                            $page_first_result = ($page - 1) * $results_per_page;
-
-                            //retrieve the selected results from database
-                            $query = "SELECT *FROM colleges LIMIT " . $page_first_result . ',' . $results_per_page;
-                            $result = mysqli_query($conn, $query);
-
-                            //display the retrieved result on the webpage
-                            while ($row = mysqli_fetch_array($result)) {
-                                $id = $row['CID'];
-                                printf ("<div class='small-college-container'>
-                                    <h3>{$row['CName']}</h3>
-                                    <p>Address: {$row['CAddress']}</p>
-                                    <p>Course: BSc. CSIT, {$row['CDuration']} years.</p><p>{$row['CWebsite']}</p>
-                                    <p>{$row['CMail']}</p>
-                                </div>
-                                <div class='college-options-wrapper'>
-                                    <button class='college-options'><a href='college_view.php?item={$id}'>View College</a></button>
-                                    <button class='college-options'><a href='college_view.php?item={$id}'>Add to Wishlist</a></button>
-                                </div><br>
-                                ");
-                            }
-
-                            //display the link of the pages in URL
-                            for ($page = 1; $page <= $number_of_page; $page++) {
-                                echo '<button class="page-number"><a href = "browse.php?page=' . $page . '">' . $page . ' </a></button>';
-                            }
-
-                        ?>
+                    <div class="filter_data">
+                       
                     </div>
                 </div>
             </div>
@@ -199,19 +150,21 @@
         function filter_data() {
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
-            var college-type = get_filter('college-type');
+            var college_type = get_filter('college_type');
             var location = get_filter('location');
             var university = get_filter('university');
+            
             $.ajax({
                 url: "fetch_data.php",
                 method: "POST",
                 data: {
                     action: action,
-                    college-type: college-type,
+                    college_type: college_type,
                     location: location,
                     university: university
                 },
                 success: function(data) {
+                    
                     $('.filter_data').html(data);
                 }
             });
