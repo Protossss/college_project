@@ -48,7 +48,12 @@
     <section id="college-view-banner">
         <div><img src="images/college_img.jpg" alt="college image"></div>
         <div class="college-info">
-            <h2></h2>
+            <h2> <?php
+                        if(isset($_GET['item'])){
+                            echo $cname;
+                        }
+                ?>
+            </h2>
         </div>
     </section>
     <div id="body-container">

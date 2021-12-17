@@ -9,21 +9,21 @@ $sql = "SELECT * from colleges WHERE 1";
 if(isset($_GET["college_type"]))
 	{
 		$college_type_filter = implode("','", $_GET["college_type"]);
-		$query .= "
+		$sql .= "
 		 AND CType IN('".$college_type_filter."')
 		";
 	}
 	if(isset($_GET["location"]))
 	{
 		$location_filter = implode("','", $_GET["location"]);
-		$query .= "
+		$sql .= "
 		 AND CProvince IN('".$location_filter."')
 		";
 	}
 	if(isset($_GET["university"]))
 	{
 		$university_filter = implode("','", $_GET["university"]);
-		$query .= "
+		$sql .= "
 		 AND CAffiliated IN('".$university_filter."')
 		";
 	}
@@ -72,6 +72,10 @@ if($db_handle->numRows($query)>0){
 	if(!empty($perpageresult)) {
 	$output .= '<div id="pagination">' . $perpageresult . '</div>';
 	}
+	
+}
+else{
+	$output .= "<h3>No colleges found!</h3>";
 }
 
 print $output;

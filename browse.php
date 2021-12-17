@@ -12,7 +12,7 @@
     .link {
         padding: 10px 15px;
         background: transparent;
-        border: #bccfd8 1px solid;
+        border:  1px solid;
         border-left: 0px;
         cursor: pointer;
         color: #607d8b
@@ -28,7 +28,7 @@
     }
 
     .first {
-        border-left: #bccfd8 1px solid;
+        border-left:  1px solid;
     }
 
     .question {
@@ -48,40 +48,59 @@
     .dot {
         padding: 10px 15px;
         background: transparent;
-        border-right: #bccfd8 1px solid;
+        border-right:  1px solid;
     }
 
-    #overlay {
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 999;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: none;
-    }
-
-    #overlay div {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-top: -32px;
-        margin-left: -32px;
-    }
-
-    .page-content {
-        padding: 20px;
-        margin: 0 auto;
-    }
+   
 
     .pagination-setting {
         padding: 10px;
         margin: 5px 0px 10px;
-        border: #bccfd8 1px solid;
+        border:  1px solid;
         color: #607d8b;
     }
-    </style>
+    </style> 
+
+    
+    <script>
+    //College Filter jQuery
+    getresult("getresult.php");
+
+    function getresult(url) {
+
+        var action = 'getresult';
+        var college_type = get_filter('college_type');
+        var location = get_filter('location');
+        var university = get_filter('university');
+
+        $.ajax({
+            url: url,
+            method: "GET",
+            data: {
+                action: action,
+                college_type: college_type,
+                location: location,
+                university: university,
+                rowcount: $("#rowcount").val(),
+                "pagination_setting": "all-links"
+            },
+            success: function(data) {
+               
+
+                $("#pagination-result").html(data);
+            }
+        });
+    }
+
+    function get_filter(class_name) {
+        var filter = [];
+        $('.' + class_name + ':checked').each(function() {
+            filter.push($(this).val());
+        });
+        return filter;
+    }
+    </script>
+
 </head>
 
 <body>
@@ -193,80 +212,36 @@
         </div>
         <?php include 'footer.php';?>
     </div>
+    <script src="js/main.js"></script>
     <script>
-    $(document).ready(function() {
-
-        $('.search-box input[type="text"]').on("keyup input", function() {
-            /* Get input value on change */
-            var inputVal = $(this).val();
-            var resultDropdown = $(this).siblings(".result");
-            if (inputVal.length) {
-                $.get("backend-search.php", {
-                    term: inputVal
-                }).done(function(data) {
-                    // Display the returned data in browser
-                    resultDropdown.html(data);
-                });
-            } else {
-                resultDropdown.empty();
-            }
-        });
-
-        // Redirect to college view onclick of results
-        $(document).on("click", ".result p", function() {
-            var itemVal = $(this).attr("id");
-
-            window.location.href = "college_view.php?item=" + itemVal;
-        });
-
-        //College Filter jQuery
-        getresult("getresult.php");
-
-        function getresult(url) {
-
-            var action = 'getresult';
-            var college_type = get_filter('college_type');
-            var location = get_filter('location');
-            var university = get_filter('university');
-
-            $.ajax({
-                url: url,
-                method: "GET",
-                data: {
-                    action: action,
-                    college_type: college_type,
-                    location: location,
-                    university: university,
-                    rowcount: $("#rowcount").val(),
-                    "pagination_setting": "all-links"
-                },
-                success: function(data) {
-                    alert(location);
-                    // $('.filter_data').html(data);
-
-                    $("#pagination-result").html(data);
-                }
+    $('.search-box input[type="text"]').on("keyup input", function() {
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if (inputVal.length) {
+            $.get("backend-search.php", {
+                term: inputVal
+            }).done(function(data) {
+                // Display the returned data in browser
+                resultDropdown.html(data);
             });
+        } else {
+            resultDropdown.empty();
         }
-
-        function get_filter(class_name) {
-            var filter = [];
-            $('.' + class_name + ':checked').each(function() {
-                filter.push($(this).val());
-            });
-            return filter;
-        }
-
-        $('.common_selector').click(function() {
-            filter_data();
-        });
-
-
-
     });
-    </script>
-    <script>
-    getresult("getresult.php");
+
+    // Redirect to college view onclick of results
+    $(document).on("click", ".result p", function() {
+        var itemVal = $(this).attr("id");
+
+        window.location.href = "college_view.php?item=" + itemVal;
+    });
+
+
+    $('.common_selector').click(function() {
+        console.log("clicked");
+        getresult("getresult.php");
+    });
     </script>
 </body>
 <script src="js/main.js"></script>

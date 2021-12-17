@@ -6,7 +6,15 @@
             <ul class="nav-links">
                 <li><a href="browse.php">Browse</a></li>
                 <li><a href="">Rankings</a></li>
-                <li><a href="sign_in.php" id="sign-in">Sign IN</a></li>
+                <?php
+                if(isset($_SESSION["UserName"])){
+                    
+                    printf("<li>Hi, ".$_SESSION["UserName"]."</li>");
+                }
+                else{
+                    echo '<li><a href="sign_in.php">Sign IN</a></li>';
+                }
+                ?>
                 <li><i class="fa fa-bars"></i></li>
             </ul>
         </nav>

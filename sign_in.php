@@ -26,11 +26,25 @@
                     
                     <div class="form-element">
                         <label for="userName">Username / E-mail</label><br>
-                        <input type="text" name="userName" id="userName">
+                        <input type="text" name="userName" id="userName" required>
+                        <div class="error">
+                            <?php
+                                if(isset($_GET['uMsg'])){
+                                    echo $_GET['uMsg'];
+                                }
+                            ?>
+                        </div><br>
                     </div>
                     <div class="form-element">
                         <label for="password">Password</label><br>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" required>
+                        <div class="error">
+                            <?php
+                                if(isset($_GET['pMsg'])){
+                                    echo $_GET['pMsg'];
+                                }
+                            ?>
+                        </div><br>
                     </div>
                     <div>
                         <input type="submit" name="sign_in" value="Sign In">
@@ -43,27 +57,27 @@
                 <form action="register_submit.php" method="POST" id="register_form">
                     <div class="form-element">
                         <label for="name">Name</label><br>
-                        <input type="text" name="name" id="name">
+                        <input type="text" name="name" id="name" required>
                     </div>
                     <div class="form-element">
                         <label for="email">E-mail</label><br>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required>
                     </div>
                     <div class="form-element">
                         <label for="number">Contact No.</label><br>
-                        <input type="number" name="number" id="number">
+                        <input type="number" name="number" id="number" >
                     </div>
                     <div class="form-element">
                         <label for="uname">Username</label><br>
-                        <input type="uname" name="uname" id="uname">
+                        <input type="uname" name="uname" id="uname" required>
                     </div>
                     <div class="form-element">
                         <label for="password">Password</label><br>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" required>
                     </div>
                     <div class="form-element">
                         <label for="password1">Confirm Password</label><br>
-                        <input type="password" name="password1" id="password1">
+                        <input type="password" name="password1" id="password1" required>
                     </div>
                     <div>
                         <input type="submit" value="REGISTER">
