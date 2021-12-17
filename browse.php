@@ -148,7 +148,7 @@
         filter_data();
 
         function filter_data() {
-            $('.filter_data').html('<div id="loading" style="" ></div>');
+        
             var action = 'fetch_data';
             var college_type = get_filter('college_type');
             var location = get_filter('location');
