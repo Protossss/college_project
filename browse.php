@@ -8,6 +8,80 @@
     <title>Browse</title>
     <link rel="stylesheet" href="css/main_style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+    .link {
+        padding: 10px 15px;
+        background: transparent;
+        border: #bccfd8 1px solid;
+        border-left: 0px;
+        cursor: pointer;
+        color: #607d8b
+    }
+
+    .disabled {
+        cursor: not-allowed;
+        color: #bccfd8;
+    }
+
+    .current {
+        background: #bccfd8;
+    }
+
+    .first {
+        border-left: #bccfd8 1px solid;
+    }
+
+    .question {
+        font-weight: bold;
+    }
+
+    .answer {
+        padding-top: 10px;
+    }
+
+    #pagination {
+        margin-top: 20px;
+        padding-top: 30px;
+        border-top: #F0F0F0 1px solid;
+    }
+
+    .dot {
+        padding: 10px 15px;
+        background: transparent;
+        border-right: #bccfd8 1px solid;
+    }
+
+    #overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    #overlay div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -32px;
+        margin-left: -32px;
+    }
+
+    .page-content {
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .pagination-setting {
+        padding: 10px;
+        margin: 5px 0px 10px;
+        border: #bccfd8 1px solid;
+        color: #607d8b;
+    }
+    </style>
 </head>
 
 <body>
@@ -110,7 +184,9 @@
 
                     </div>
                     <div class="filter_data">
-                       
+                        <div id="pagination-result">
+                            <input type="hidden" name="rowcount" id="rowcount" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,7 +194,6 @@
         <?php include 'footer.php';?>
     </div>
     <script>
-
     $(document).ready(function() {
 
         $('.search-box input[type="text"]').on("keyup input", function() {
@@ -145,27 +220,31 @@
         });
 
         //College Filter jQuery
-        filter_data();
+        getresult("getresult.php");
 
-        function filter_data() {
-            $('.filter_data').html('<div id="loading" style="" ></div>');
-            var action = 'fetch_data';
+        function getresult(url) {
+
+            var action = 'getresult';
             var college_type = get_filter('college_type');
             var location = get_filter('location');
             var university = get_filter('university');
-            
+
             $.ajax({
-                url: "fetch_data.php",
-                method: "POST",
+                url: url,
+                method: "GET",
                 data: {
                     action: action,
                     college_type: college_type,
                     location: location,
-                    university: university
+                    university: university,
+                    rowcount: $("#rowcount").val(),
+                    "pagination_setting": "all-links"
                 },
                 success: function(data) {
-                    
-                    $('.filter_data').html(data);
+                    alert(location);
+                    // $('.filter_data').html(data);
+
+                    $("#pagination-result").html(data);
                 }
             });
         }
@@ -181,13 +260,13 @@
         $('.common_selector').click(function() {
             filter_data();
         });
-        
-       
+
+
 
     });
-
-
-
+    </script>
+    <script>
+    getresult("getresult.php");
     </script>
 </body>
 <script src="js/main.js"></script>
